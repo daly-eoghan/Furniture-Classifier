@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+  <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Homepage</title>
+    </head>
+    <body>
+        <header>
+            <h1>Furniture Classifier</h1>
+        </header>
+        <main>
+            <section>
+                <p>Welcome to my webpage! Please choose a file to upload.</p>
+                <form method = "post", enctype = "multipart/form-data">
+                    {{ form.hidden_tag() }}
+
+                    {% for error in form.picture.errors %}
+                        <spam style = "color: red;"> {{ error }} </spam>>
+                    
+                    {% endfor %}
+
+                    <div class="row justify-content-center">
+                        <div class="col-auto">
+                            {{ form.picture( class = "form-control" )}}
+                        </div>
+                        <div class="col-auto">
+                            {{ form.submit( class = "btn btn-success" )}}
+                        </div>
+                    </div>
+
+                </form>
+                {% if file_url %}
+                    <div class="mt-5">
+                        <img src = "{{ file_url }}" style = "width: 400px;">
+                    </div>
+                {% endif %}
+
+                {% if prediction %}
+                    <div class="mt-5">
+                        <p> The prediction is: {{ prediction }}</p>
+                    </div>
+                {% endif %}
+            </section>
+        </main>
+        <footer>
+            <p> &copy; Written by Eoghan Daly</p>
+        </footer>
+    </body>
+  </html>
