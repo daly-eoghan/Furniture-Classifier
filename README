@@ -1,0 +1,11 @@
+This is my multiclass furniture classifier. Its three classes are bed, chair and sofa. Steps to running the classifier:
+
+Partition the dataset images using the create_sets.py file. Run using the command line with the following command: python3 create_sets.py <Dataset-file> 0.5 0.25
+The last two figures represent the proportion of training and validations sets are made. The test set is the proportion remaining. 
+
+To get the best model run the furniture classifier jupyter notebook. Inside this file there are many different networks, each trying to improve accuracy while
+reducing overfitting. Comment out all models except for the ResNet50 base model if you just want the most efficient model.
+
+Run the app.py file through the command line with python app.py to open the API for the classifier.
+
+Run the dockerfile to get the docker image of this flask application.
